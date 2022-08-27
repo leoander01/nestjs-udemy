@@ -1,4 +1,8 @@
 module.exports = {
+  env: {
+    node: true,
+    jest: true,
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
@@ -10,10 +14,6 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
@@ -21,6 +21,11 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
   },
+  'camelcase': 'off',
+  'quotes': ['error', 'single'],
+  'indent': ['error', 2],
+  'no-multi-spaces': ['error'],
+  'no-warning-comments': 'warn',
   'comma-dangle': ['error', {
     arrays: 'always-multiline',
     objects: 'always-multiline',
