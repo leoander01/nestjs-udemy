@@ -10,7 +10,7 @@ export class CoursesService {
   constructor(
     @Inject('COURSES_REPOSITORY')
     private readonly courseRepository: Repository<Course>,
-    @InjectRepository(Tag)
+    @Inject('TAGS_REPOSITORY')
     private readonly tagRepository: Repository<Tag>,
   ) {}
 
