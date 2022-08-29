@@ -8,13 +8,13 @@ export const databaseProviders = [
         type: 'postgres',
         host: 'localhost',
         port: 5432,
-        username:  'postgres',
+        username: 'postgres',
         password: 'docker',
         database: 'postgres',
         entities: [__dirname + '/../**/*.entity.js'],
         synchronize: true,
       })
-      
+
       return dataSource.initialize()
     },
   },
