@@ -11,7 +11,7 @@ export const databaseProviders = [
         port: 5432,
         username: 'postgres',
         password: 'docker',
-        database: 'cursonestjs',
+        database: 'postgres',
         entities: [__dirname + '/../**/*.entity.js'],
         synchronize: true,
       })
