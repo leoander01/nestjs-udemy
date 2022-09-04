@@ -14,5 +14,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true
-  }
+  },
+  "include": ["src", "test"],
+  "exclude": ["dist", "node_modules"]
 }

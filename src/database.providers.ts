@@ -1,5 +1,9 @@
 import { DataSource } from 'typeorm'
-import { CourseRefactoringTest1661814392785 } from './migrations/1661814392785-CourseRefactoringTest'
+import { CreateCoursesTable1662300745728 } from './migrations/1662300745728-CreateCoursesTable'
+import { CreateTagsTable1662301056308 } from './migrations/1662301056308-CreateTagsTable'
+import { CreateCoursesTagsTable1662305073825 } from './migrations/1662305073825-CreateCoursesTagsTable'
+import { AddCoursesIdToCoursesTagsTable1662305351461 } from './migrations/1662305351461-AddCoursesIdToCoursesTagsTable'
+import { AddTagsIdToCoursesTagsTable1662305875064 } from './migrations/1662305875064-AddTagsIdToCoursesTagsTable'
 
 export const databaseProviders = [
   {
@@ -7,13 +11,13 @@ export const databaseProviders = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'postgres',
-        host: 'localhost',
+        host: 'db',
         port: 5432,
         username: 'postgres',
         password: 'docker',
-        database: 'postgres',
+        database: 'cursonestjs',
         entities: [__dirname + '/../**/*.entity.js'],
-        synchronize: true,
+        synchronize: false,
       })
 
       return dataSource.initialize()
@@ -23,12 +27,18 @@ export const databaseProviders = [
 
 export const dataSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
+  host: 'db',
   port: 5432,
   username: 'postgres',
   password: 'docker',
-  database: 'postgres',
+  database: 'cursonestjs',
   entities: [__dirname + '/../**/*.entity.js'],
-  synchronize: true,
-  migrations: [CourseRefactoringTest1661814392785],
+  synchronize: false,
+  migrations: [
+    CreateCoursesTable1662300745728,
+    CreateTagsTable1662301056308,
+    CreateCoursesTagsTable1662305073825,
+    AddCoursesIdToCoursesTagsTable1662305351461,
+    AddTagsIdToCoursesTagsTable1662305875064
+  ],
 })

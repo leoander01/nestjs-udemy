@@ -20,7 +20,7 @@ export class CoursesService {
     })
   }
 
-  async findOneCourse(id: number) {
+  async findOneCourse(id: string) {
     const findCourse = await this.courseRepository.findOne({
       where: { id },
       relations: ['tags'],
@@ -50,7 +50,7 @@ export class CoursesService {
       ))
 
     const indexCourse = await this.courseRepository.preload({
-      id: +id,
+      id: id,
       ...updateCourseDto,
       tags,
     })
@@ -60,7 +60,7 @@ export class CoursesService {
     return this.courseRepository.save(indexCourse)
   }
 
-  async removeCourse(id: number) {
+  async removeCourse(id: string) {
     const indexCourse = await this.courseRepository.findOne({
       where: { id },
     })
